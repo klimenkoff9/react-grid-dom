@@ -1,36 +1,36 @@
-import React, { Component } from 'react'
+import React from 'react';
+import "./Table.css"
 
-class Table extends Component {
-  constructor(props){
-    super(props);
-    this.state = {size: 3}
-  }
-  render(){
-    let rows = [];
-    for (var i = 0; i < this.state.size; i++){
-      let rowID = `row${i}`
-      let cell = []
-      for (var idx = 0; idx < this.state.size; idx++){
-        let cellID = `cell${i}-${idx}`
-        cell.push(<td key={cellID} id={cellID}></td>)
-      }
-      rows.push(<tr key={i} id={rowID}>{cell}</tr>)
-    }
-    // https://stackoverflow.com/questions/39462458/react-js-creating-simple-table
+// https://stackoverflow.com/questions/39462458/react-js-creating-simple-table
+let id = 0;
+function createData(option, type) {
+  id += 1;
+  return { id, option, type };
+}
+
+let rows = [
+  createData('Setting One', 'Private'),
+  createData('Setting Two', 'Public'),
+  createData('Setting Three', 'Group'),
+  createData('Setting Four', 'Private'),
+];
+
+class Table extends React.Component {
+
+
+  render() {
     return(
-      <div className="container">
-        <div className="row">
-          <div className="col s12 board">
-            <table id="simple-board">
-               <tbody>
-                 {rows}
-               </tbody>
-             </table>
-          </div>
-        </div>
-      </div>
+      <table>
+      {rows.map(row => (
+        <tr key={row.id}>
+          <td>{row.option}</td>
+          <td>{row.type}</td>
+        </tr>
+      ))}
+      </table>
     )
   }
+
 }
 
 export default Table;
