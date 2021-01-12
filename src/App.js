@@ -1,6 +1,6 @@
-import {AddCol, AddRow, ChangeColor, SelectColor } from "./Components/index"
 import './App.css';
-import Table from "./Components/Table/Table.jsx"
+import React from 'react';
+import Table from "./Components/Table.jsx"
 
 function App() {
   return (
