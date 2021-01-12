@@ -16,24 +16,25 @@ class Table extends Component {
   // Add Row
   addRow = (e) => {
     e.preventDefault();
-    this.setState({rows: this.state.rows + 1})
-  }
+    this.setState({ rows: this.state.rows + 1 });
+  };
   // Add Column
   addColumn = (e) => {
     e.preventDefault();
-    this.setState({columns: this.state.columns + 1})
-  }
+    this.setState({ columns: this.state.columns + 1 });
+  };
   // Removes Row
   removeRow = (e) => {
     e.preventDefault();
-    this.setState({rows: this.state.rows - 1});
-  }
+    if (this.state.rows > 1)
+    this.setState({ rows: this.state.rows - 1 });
+  };
   // Removes Column
   removeColumn = (e) => {
     e.preventDefault();
-    if (this.state.columns > 1) 
-    this.setState({columns: this.state.columns - 1});
-  }
+    if (this.state.columns > 1)
+      this.setState({ columns: this.state.columns - 1 });
+  };
   // Choose the color of cell
   pickColor = (event) => {
     event.preventDefault();
