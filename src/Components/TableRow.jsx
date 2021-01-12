@@ -9,7 +9,6 @@ const TableRow = (props) => {
       <TableCell
         mouseDown={props.mouseDown}
         mouseUp={props.mouseUp}
-        // mouseEnter={props.mouseEnter}
         selectedColor={props.selectedColor}
         changeToColor={props.changeToColor}
       />
