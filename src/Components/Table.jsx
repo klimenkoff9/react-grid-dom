@@ -50,26 +50,33 @@ class Table extends Component {
     event.preventDefault();
     this.setState({ coloring: true });
   };
-  // Stop painting cell
+    // Stop painting cell
   mouseUp = (event) => {
     event.preventDefault();
     this.setState({ coloring: false });
   };
+  // Hold and fill
+  mouseEnter = (event) => {
+    event.preventDefault();
+    if (this.state.coloring === true) {
+      event.target.style.backgroundColor = this.state.color;
+    }
+  };
   // Fill All Cells
   fillAllCells = (event) => {
     event.preventDefault();
-    const pixels = document.getElementsByTagName("td");
-    for (let i = 0; i < pixels.length; i++) {
-      pixels[i].style.backgroundColor = this.state.color;
+    const cells = document.getElementsByTagName("td");
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].style.backgroundColor = this.state.color;
     }
   };
   // Fill Uncolored Cells
   fillUncoloredCells = (event) => {
     event.preventDefault();
-    const pixels = document.getElementsByTagName("td");
-    for (let i = 0; i < pixels.length; i++) {
-      if (pixels[i].style.backgroundColor === "") {
-        pixels[i].style.backgroundColor = this.state.color;
+    const cells = document.getElementsByTagName("td");
+    for (let i = 0; i < cells.length; i++) {
+      if (cells[i].style.backgroundColor === "") {
+        cells[i].style.backgroundColor = this.state.color;
       }
     }
   };
@@ -77,10 +84,11 @@ class Table extends Component {
   // Clear All Cells
   clearAllCells = (event) => {
     event.preventDefault();
-    let pixels = document.getElementsByTagName("td");
-    for (let i = 0; i < pixels.length; i++) {
-      pixels[i].style.backgroundColor = null;
+    let cells = document.getElementsByTagName("td");
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].style.backgroundColor = null;
     }
+    
   };
 
   render() {
