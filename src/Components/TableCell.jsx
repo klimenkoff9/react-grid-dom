@@ -4,13 +4,11 @@ function TableCell(props) {
   return (
     <td
       onMouseDown={props.mouseDown}
-      onmouseUp={props.mouseUp}
+      onMouseUp={props.mouseUp}
       onMouseEnter={props.mouseEnter}
       onClick={props.changeToColor}
+      style={{ width: "35px", height: "35px", border: "3.5px solid black" }}
     >
-      <div
-        style={{ width: "35px", height: "35px", border: "3.5px solid black" }}
-      ></div>
     </td>
   );
 }
